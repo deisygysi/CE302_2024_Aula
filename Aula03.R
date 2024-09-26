@@ -233,3 +233,203 @@ substr(x = nomes[1],
 gsub(pattern = "G", 
      replacement = "R",
      x = "Gato")
+
+
+getwd()
+setwd("~/Desktop/")
+getwd()
+
+list.files()
+
+####
+#### Ler arquivos
+####
+
+read.csv()
+read.table()
+
+library(readxl)
+dataset <- read_excel(NULL)
+View(dataset)
+
+####
+#### Escrever arquivos
+write.csv(nome_do_objeto, "...caminho.csv")
+write.table(nome_do_objeto, "...caminho.txt")
+
+####
+data()
+data(iris)
+iris
+
+str(iris)
+head(iris, n = 3) # Mostra as primeiras linhas
+tail(iris, n = 2) # Mostra as últimas linhas
+## Default é 6
+
+summary(iris)
+
+###### Matrizes
+###### 
+vetor_a = c(1,2,3,4)
+vetor_b = c(5,6,7,8)
+
+matriz_linha = rbind(vetor_a, 
+                     vetor_b)
+matriz_linha
+
+matriz_coluna = cbind(vetor_a, vetor_b)
+matriz_coluna
+
+class(matriz_coluna)
+class(vetor_a)
+is.matrix(matriz_coluna)
+is.matrix(matriz_linha)
+
+
+matriz_a <- matrix(seq(1:9), 
+                   ncol = 3, 
+                   nrow = 3)
+matriz_a
+
+
+matriz_b <- matrix(seq(1:9), 
+                   ncol = 3, 
+                   nrow = 3, 
+                   byrow = T)
+matriz_b
+
+dim(matriz_a)
+dim(matriz_b)
+
+dim(matriz_linha)
+dim(matriz_coluna)
+
+matriz_a
+matriz_a[1,2]
+matriz_a[1, ]
+matriz_b[ ,3]
+
+B = matriz_b
+elementos_maior_que_3 <- B[which(B > 3)]
+elementos_maior_que_3
+
+
+## Exemplo 2: Seleção de Elementos Ímpares
+elementos_impares <- B[which(B %% 2 != 0)]
+elementos_impares
+
+
+B[-1, ]
+B[, -2]
+
+B[, -c(1,3)]
+B[1:2, -3]
+
+### Operações entre matrizes
+
+A <- matrix(c(4, -3, 7, 
+              10, 1, 1, 
+              -5, 2, 3), 
+            ncol = 3, 
+            byrow = TRUE)
+A
+B <- matrix(c(2, -1, 3,
+              1, 4, 1, 
+              5, -2, 7), 
+            ncol = 3, 
+            byrow = TRUE)
+B
+
+dim(A)
+dim(B)
+dim(A) == dim(B)
+
+A + B
+A - B
+###
+A
+rowSums(A)
+colSums(A)
+
+rowMeans(A)
+colMeans(B)
+
+k <- 2
+A
+A * k
+
+
+A 
+B
+
+A * B
+
+
+produto_matricial <- A %*% B
+produto_matricial
+
+
+t(A)
+solve(A)
+det(A)
+
+diag(A)
+AUTOVALORES_AUTOVETORES = eigen(A)
+
+AUTOVALORES_AUTOVETORES$vectors
+
+AUTOVALORES_AUTOVETORES$values
+
+
+crossprod(A, B)
+produto_transposto_t <- tcrossprod(A, B)
+produto_transposto_t
+#########
+
+colnames(A)<- c("Coluna1", "Coluna2", "Coluna3")
+A
+rownames(A) <- c( "Linha1", "Linha2", "Linha3")
+A
+
+
+A <- matrix(1:9, nrow = 3)
+upper_elements <- upper.tri(A, diag = F)
+upper_elements
+
+A[upper_elements]<-90
+A
+
+lower_elements <- lower.tri(A, diag = T)
+lower_elements
+A[lower_elements] <- 24
+A
+# 
+# A[diag(A)]<- 0
+# A
+class(A)
+
+
+# Criando um array 2x3x4
+arr <- array(1:24, dim = c(2, 3, 4))
+arr
+
+elemento <- arr[2, 3, 4]
+elemento
+
+arr[,,4]
+
+
+# Criando dois arrays
+arr1 <- array(1:12, dim = c(3, 2, 2))
+arr2 <- array(13:24, dim = c(3, 2, 2))
+
+# Soma de arrays
+soma <- arr1 + arr2
+
+# Produto element-wise
+produto <- arr1 * arr2
+produto
+# Média ao longo da terceira dimensão
+media <- mean(arr1, dim = 3)
+media
