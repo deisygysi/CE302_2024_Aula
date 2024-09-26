@@ -404,9 +404,8 @@ lower_elements <- lower.tri(A, diag = T)
 lower_elements
 A[lower_elements] <- 24
 A
-# 
-# A[diag(A)]<- 0
-# A
+diag(A) <- 0
+A
 class(A)
 
 
