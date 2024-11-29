@@ -1,0 +1,62 @@
+---
+title: "Seu Título Aqui"
+subtitle: "Seu Subtítulo Aqui"
+author: "Seu Nome aqui"
+date: 11/27/2024
+date-format: long # date-format: dddd MMM D, YYYY   
+lang: pt
+format: 
+  html:
+    code-fold: true
+    code-summary: "R"
+    code-overflow: scroll
+    code-tools: true
+    code-line-numbers: false
+    highlight-style: dracula
+    code-link: true ## Funciona se o code-line é false
+
+highlight-style: dracula
+theme: 
+  light: yeti
+  dark: slate
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
+
+You can add options to executable code like this
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
+
+```{r}
+#| echo: false
+#| eval: true
+#| warning: false
+#| message: false
+#| fig.width: 6
+#| fig.height: 4
+plot(1:10)
+```
+
+
+```{r}
+#| results: "asis"
+require(magrittr)
+iris %>% 
+  knitr::kable()
+```
+

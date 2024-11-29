@@ -211,3 +211,7 @@ ggplot() +
 
 
 tmp = Files[sample(1:nrow(Files), 1000)]
+
+
+save(Files, compress = "xz", 
+     file = "data/Files.RData")
